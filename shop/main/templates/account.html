@@ -1,0 +1,59 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Акаунт
+{% load static %}
+{% endblock %}
+
+{% block content %}
+
+<h1 class="intro-headline">Ваш акаунт</h1>
+
+
+<div class="row">
+    <div class="col-xl-4">
+        <div class="card mb-4 mb-xl-0">
+            <div class="card-body text-center">
+                <img class="img-account-profile rounded-circle mb-2" src="{% static 'main/img/account-img.png' %}" style="object-fit: fill; width: 250px; height: auto" alt="">
+                <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                <button class="btn btn-dark" type="button">Завантажити фото</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-8">
+        <div class="card mb-4">
+            <div class="card-header">Інформація про користувача</div>
+            <div class="card-body">
+                <form>
+                    <div class="row gx-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="small mb-1" for="inputFirstName">Ім'я</label>
+                            <input class="form-control" id="inputFirstName" type="text" placeholder="Введить своє ім'я" value="Влад">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="small mb-1" for="inputLastName">Прізвище</label>
+                            <input class="form-control" id="inputLastName" type="text" placeholder="Введіть своє прізвище" value="Мітлицький">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="small mb-1" for="inputPhone">Номер телефону</label>
+                            <input class="form-control" id="inputPhone" type="tel" placeholder="Введіть ваш номер телефону" value="380123456789">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="small mb-1" for="inputSize">Розмір взуття</label>
+                            <input class="form-control" id="inputSize" type="email" placeholder="Введіть ваш розмір взуття" value="43">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="small mb-1" for="inputEmailAddress">Email</label>
+                        <input class="form-control" id="inputEmailAddress" type="email" placeholder="Введіть ваш Email" value="mvladv1@ukr.net">
+                    </div>
+                    <button class="btn btn-dark" type="button">Зберегти зміни</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
+

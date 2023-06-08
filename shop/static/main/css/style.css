@@ -1,0 +1,36 @@
+/* INDEX */
+.index-trends {
+    text-align: center;
+    background-color: #101010;
+}
+
+/* ABOUT */
+
+.intro-about {
+    position: relative;
+    font-size: 20px;
+    font-style: normal;
+    padding: 8px;
+}
+
+.intro-headline {
+    text-align: center;
+}
+
+.text-about {
+    padding-bottom: 100px;
+}
+
+/* SEARCH */
+.search-form {
+    position: absolute;
+    font-size: 1.5rem;
+}
+
+.search {
+    position: relative;
+    left: 300px;
+    bottom: 6px;
+}
+
+/* ACCOUNT */

@@ -1,0 +1,99 @@
+{% extends 'index.html' %}
+
+{% block title %}
+{{ title }}
+{% load static %}
+{% endblock %}
+
+{% block content %}
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center">
+    <div class="col-xs-5 p-md mx-auto" >
+            <h1 class="position-top display-4 fw-normal">Вітаємо у Sneakers</h1>
+      <p class="lead fw-normal">Обери свою ідеальну пару</p>
+        <img src="{% static 'main/img/index-intr.png' %}" class="card-img image-fluid" alt="">
+      <a class="btn btn-outline-secondary" href="{% url 'store' %}">Переглянути</a>
+    </div>
+    <div class="product-device shadow-sm d-none d-md-block"></div>
+    <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+</div>
+
+<section class="index-trends" style="background-color: #A9A9A9">
+    <div class="container text-light" style="padding-top: 50px">
+        <h3>Новинки</h3>
+    </div>
+    {% if sneakers %}
+    <div class="container d-flex justify-content-center mt-50 mb-50">
+            <div class="row">
+                  {% for el in sneakers %}
+                <div class="col-md-4 mt-2">
+                    <div class="card" style="background-color: #FFFFFF">
+                        <div class="card-body">
+                            <div class="card-img-actions">
+                                {% if el.image %}
+                                    <img src = "{{ el.image.url }}" class="card-img img-fluid" width="120" alt="">
+                                {% endif %}
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="text-center" style="padding-top: 30px">
+                            <div class="mb-2" >
+                                <h6 class="font-weight-semibold mb-2">
+                                    <a href="#" class="mb-2 text-decoration-none text-light" data-abc="true">{{ el.name }}</a>
+                                </h6>
+                            </div>
+                            <h5 class="mb-0 text-light">{{ el.price }} ₴</h5>
+                    </div>
+                </div>
+                {% endfor %}
+                </div>
+        </div>
+{% else %}
+    <p>На жаль, в нашому магазині ніяких новинок немає</p>
+{% endif %}
+
+
+    <p><a class="btn text-light" href="#">Дивитися більше »</a></p>
+</section>
+
+<section class="px-4 pt-5 my-5 text-center border-bottom">
+    <h4 style="padding: 50px"> Sneakers </h4>
+    Це онлайн-магазин кросівок, що пропонує широкий асортимент моделей від провідних брендів.<br>
+    Наша мета - забезпечити клієнтів якісним взуттям, зручним замовленням та швидкою доставкою.
+    <h5 style="padding: 30px">Ми співпрацюємо з такими компаніями</h5>
+    <div class="row">
+        <div class="col-lg-3">
+            <img class="bd-placeholder-img rounded-circle" style="object-fit: cover" width="140" height="140" src="{% static 'main/img/nike.jpg' %}" alt="Nike">
+        </div>
+        <div class="col-lg-3 ">
+            <img class="bd-placeholder-img rounded-circle" style="object-fit: contain" width="140" height="140" src="{% static 'main/img/nb-logo.png' %}" alt="New Balance">
+        </div>
+
+        <div class="col-lg-3">
+            <img class="bd-placeholder-img rounded-circle bg-transparent" style="object-fit: cover" width="140" height="140" src="{% static 'main/img/asics-tiger.png' %}" alt="Asics Tiger">
+        </div>
+        <div class="col-lg-3">
+            <img class="bd-placeholder-img rounded-circle" style="object-fit: cover" width="140" height="140" src="{% static 'main/img/adidas.jpg' %}" alt="Adidas">
+        </div>
+        <p><a class="btn" href="#">Деталі »</a></p>
+    </div>
+</section>
+
+
+<section class="row d-flex justify-content-center align-items-center rows m-5">
+    <div class="col-md-15 ">
+        <div class>
+            <div class="text-center">
+                <h3 class="text-uppercase">Будьте завжди з нами</h3>
+                <span class="d-block mt-3">Підпишіться на нашу розсилку, щоб не пропустити новинки <br> акції та знижки від Sneakers</span>
+                <div class="mx-5">
+                    <div class="input-group mb-3 mt-4">
+                        <input type="text" class="form-control" placeholder="Введіть email" aria-label="Recipient's email" aria-describedby="button-addon2">
+                        <button class="btn btn-dark border-rad" type="button" id="button-addon2">Підписатися</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

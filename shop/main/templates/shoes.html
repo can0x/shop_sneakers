@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+
+{% block title %}
+{% load static %}
+Усі товари
+{% endblock %}
+
+{% block content %}
+{% if sneakers %}
+
+<h2 class="intro-headline">Наш каталог</h2>
+
+<div class="container d-flex justify-content-center mt-50 mb-50">
+    <div class="row">
+        {% for el in sneakers %}
+        <div class="col-md-4 mt-2">
+            <div class="card" style="background-color: #FFFFFF">
+                <div class="card-body">
+                    {% if el.image %}
+                        <img src = "{{ el.image.url }}" class="card-img img-fluid" width="120" alt="">
+                    {% else %}
+                        <img src="https://memepedia.ru/wp-content/uploads/2023/03/podkraduli-mem.jpg" class="card-img img-fluid" width="96" height="350" alt="">
+                    {% endif %}
+                </div>
+                <div class="card-body bg-light text-center">
+                    <div class="mb-2">
+                        <h6 class="font-weight-semibold mb-2">
+                            <a href="#" class="mb-2 text-decoration-none text-dark" data-abc="true">{{ el.name }}</a>
+                        </h6>
+                    </div>
+                    <h3 class="mb-0 font-weight-semibold">{{ el.price }} ₴</h3>
+                    <button type="button" class="btn btn-outline-dark m-2"><i class="fa fa-cart-plus mr-2"></i> Додати в корзину</button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+    <p>Ой! Здається, в нашому магазині ніякого товару немає :(</p>
+{% endif %}
+
+{% endblock %}
+

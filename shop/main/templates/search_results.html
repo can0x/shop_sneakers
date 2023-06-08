@@ -1,0 +1,59 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Результати
+{% load static %}
+{% endblock %}
+
+{% block content %}
+
+<h1 class="intro-headline">Пошук</h1>
+
+<div  class="d-flex justify-content-center align-items-center">
+    <br>Шукаєте особливу пару кросівок? Скористайтеся пошуком на сайті.
+</div>
+
+<section class="d-flex justify-content-center align-items-center rows m-5">
+
+
+        <div class="input-group">
+            <form class="input-group" action="{% url 'search_results' %}" role="search">
+            <input class="form-control rounded" type="search" value="{{ request.GET.q }}" aria-describedby="search-addon" placeholder="Знайти..." name="q" id="id_q">
+            <button class="btn btn-outline-dark" type="submit">Шукати...</button>
+            </form>
+        </div>
+</section>
+{% if sneakers %}
+    <div class="container d-flex justify-content-center mt-50 mb-50">
+        <div class="row">
+    {% if sneakers %}
+        {% for el in results %}
+           <div class="col-md-4 mt-2">
+                    <div class="card" style="background-color: #D9D9D9">
+                        <div class="card-body">
+                            <div class="card-img-actions">
+                                {% if el.image %}
+                        <img src = "{{ el.image.url }}" class="card-img img-fluid"  width="96" height="350" alt="">
+                    {% else %}
+                        <img src="https://memepedia.ru/wp-content/uploads/2023/03/podkraduli-mem.jpg" class="card-img img-fluid" width="96" height="350" alt="">
+                    {% endif %}
+                            </div>
+                        </div>
+                        <div class="card-body bg-light text-center">
+                            <div class="mb-2">
+                                <h6 class="font-weight-semibold mb-2">
+                                    <p class="mb-2 text-decoration-none text-dark">{{ el.name }}</p>
+                                </h6>
+                            </div>
+                            <h3 class="mb-0 font-weight-semibold">{{ el.price }} ₴</h3>
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+    {% else %}
+        <p>Query returned no results.</p>
+    {% endif %}
+        </div>
+    </div>
+{% endif %}
+{% endblock %}
